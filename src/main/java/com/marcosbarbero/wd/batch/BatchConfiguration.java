@@ -61,14 +61,20 @@ public class BatchConfiguration {
     public FlatFileItemReader<Autobot> reader() {
         FlatFileItemReader<Autobot> reader = new FlatFileItemReader<>();
         reader.setResource(new ClassPathResource("sample-data.csv"));
-        reader.setLineMapper(new DefaultLineMapper<Autobot>() {{
-            setLineTokenizer(new DelimitedLineTokenizer() {{
+        reader.setLineMapper(new DefaultLineMapper<Autobot>() {
+            {
+            setLineTokenizer(new DelimitedLineTokenizer() {
+                {
                 setNames(new String[]{"name", "car"});
-            }});
-            setFieldSetMapper(new BeanWrapperFieldSetMapper<Autobot>() {{
+                }
+            });
+            setFieldSetMapper(new BeanWrapperFieldSetMapper<Autobot>() {
+                {
                 setTargetType(Autobot.class);
-            }});
-        }});
+                }
+            });
+            }
+        });
         return reader;
     }
 
