@@ -1,0 +1,7 @@
+DROP TABLE autobot IF EXISTS;
+
+CREATE TABLE autobot  (
+    autobot_id BIGINT IDENTITY NOT NULL PRIMARY KEY,
+    name VARCHAR(50),
+    car VARCHAR(50)
+);
